@@ -8,22 +8,8 @@ This repository contains the necessary setup to run an API Gateway with Kong to 
 * Services deployed
 
 # Project structure
-```bash
-├── 📁 API-GATEWAY/
-│   └── docker-compose.yml  # Compose file to run Kong, database, and services
-│   └── kong.yml            # Declarative configuration for routes and services
-│   └── .example.env        # Define environment variables (change when deploying)
-```
 
 # Steps to run the project
-
-## Create .env file
-
-Change .example.env to .env and set the required variable:
-
-```bash
-FIREBASE_PROJECT_ID=YOUR_FIREBASE_PROJECT_ID
-```
 
 ## Run the API
 
