@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+  tyk-gateway:
+    image: tykio/tyk-gateway:latest
+    container_name: tyk-gateway
+    restart: always
+    environment:
+      TYK_GW_STORAGE: "redis"
+      TYK_GW_SECRET: "this_is_a_secret_key_for_tyk"
+      TYK_GW_ENABLE_ANALYTICS: "false"
+      TYK_GW_ADMIN_SECRET: "adminsecret"
+      TYK_GW_USE_DB_APP_CONFIGS: "false"
+    networks:
+      - app-network
+    ports:
+      - "8080:8080"  # Exponemos Tyk
+    volumes:
+      - ./tyk/apis:/opt/tyk-gateway/apps
+      - ./tyk/tyk.conf:/opt/tyk-gateway/tyk.conf
+
+  redis:
+    image: redis:alpine
+    container_name: tyk-redis
+    restart: always
+    networks:
+      - app-network
+    ports:
+      - "6379:6379"
+
+networks:
+  app-network:
+    external: true
