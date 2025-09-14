@@ -209,8 +209,8 @@
       "output_encoding": "no-op",
       "backend": [
         {
-          "host": ["http://receiving-service:8110"],
-          "url_pattern": "/api/v1/practice/register",
+          "host": ["http://receive-service:8110"],
+          "url_pattern": "/practice/register",
           "encoding": "no-op",
           "timeout": "40s",
           "extra_config": {
