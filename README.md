@@ -28,4 +28,3 @@ docker compose up -d
 
 ## Access the API
 * [API Gateway here](http://localhost:8080).
-

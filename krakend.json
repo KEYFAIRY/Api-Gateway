@@ -3,117 +3,254 @@
   "version": 3,
   "name": "Keyfairy API Gateway",
   "port": 8080,
+  "timeout": "60s",
   "extra_config": {
     "router": {
       "return_error_msg": true
+    },
+    "backend/http/client": {
+      "idle_connection_timeout": "600s",
+      "response_header_timeout": "30s",
+      "expect_continue_timeout": "3s",
+      "dialer_timeout": "30s",
+      "dialer_keep_alive": "60s",
+      "max_idle_connections": 500,
+      "max_idle_connections_per_host": 50,
+      "disable_keep_alives": false
     }
   },
   "endpoints": [
     {
       "endpoint": "/users",
       "method": "POST",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://auth-service:8000"],
           "url_pattern": "/api/v1/users/",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/users",
       "method": "GET",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://auth-service:8000"],
           "url_pattern": "/api/v1/users",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/users/{uid}",
       "method": "GET",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://auth-service:8000"],
           "url_pattern": "/api/v1/users/{uid}",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/users/{uid}",
       "method": "PUT",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://auth-service:8000"],
           "url_pattern": "/api/v1/users/{uid}",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/auth/register",
       "method": "POST",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://auth-service:8000"],
           "url_pattern": "/api/v1/auth/register",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/auth/login",
       "method": "POST",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://auth-service:8000"],
           "url_pattern": "/api/v1/auth/login",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/auth/refresh-token",
       "method": "POST",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://auth-service:8000"],
           "url_pattern": "/api/v1/auth/refresh-token",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/practice/register",
       "method": "POST",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://receiving-service:8110"],
           "url_pattern": "/api/v1/practice/register",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     },
     {
       "endpoint": "/postural-errors/practice/{practice_id}",
       "method": "GET",
+      "timeout": "45s",
       "output_encoding": "no-op",
       "backend": [
         {
           "host": ["http://video-analysis-service:8100"],
           "url_pattern": "/api/v1/postural-errors/practice/{practice_id}",
-          "encoding": "no-op"
+          "encoding": "no-op",
+          "timeout": "40s",
+          "extra_config": {
+            "backend/http": {
+              "disable_keep_alives": false,
+              "idle_connection_timeout": "600s",
+              "dialer_keep_alive": "60s"
+            },
+            "backend/health": {
+              "path": "/health",
+              "interval": "30s",
+              "timeout": "5s"
+            }
+          }
         }
       ]
     }
