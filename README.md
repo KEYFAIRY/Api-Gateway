@@ -10,12 +10,15 @@ This repository contains the necessary setup to run an API Gateway with Krakend 
 # Project structure
 
 ```bash
-📁 API-GATEWAY/         # Root folder
-│
-├── .example.env         # Example to create real .env
-├── docker-compose.yml   # Runs this service container 
-├── krakend.json         # Api Gateway configuration
-└── README.md            # Documentation
+📁 API-GATEWAY/
+├── docker-compose.yml
+├── .env
+├── krakend
+│   ├── Dockerfile
+│   ├── entrypoint.sh
+│   └── krakend.tmpl.json
+├── .gitignore
+└── README.md
 ```
 
 # Steps to run the project
