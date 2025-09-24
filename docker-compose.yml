@@ -1,20 +1,21 @@
-version: "3.9"
+version: "3.8"
 
 services:
-  krakend-gateway:
-    image: devopsfaith/krakend
-    container_name: kraken
-    restart: always
-    environment:
-      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
-      - PORT=${PORT}
-    networks:
-      - app-network
+  krakend:
+    build:
+      context: ./krakend
+      dockerfile: Dockerfile
     ports:
       - "${PORT}:${PORT}"
     volumes:
-      - ./krakend.json:/etc/krakend/krakend.json:ro
-    command: ["run", "-c", "/etc/krakend/krakend.json", "-p", "${PORT}"]
+      - ./krakend/krakend.tmpl.json:/etc/krakend/krakend.tmpl.json:ro
+    environment:
+      - PORT=${PORT}
+      - FIREBASE_JWK_URL=${FIREBASE_JWK_URL}
+      - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+      - FIREBASE_ISSUER=${FIREBASE_ISSUER}
+    networks:
+      - app-network
 
 networks:
   app-network:
