@@ -6,9 +6,9 @@ set -e
 : "${FIREBASE_PROJECT_ID:?Error: FIREBASE_PROJECT_ID is not set.}"
 : "${FIREBASE_ISSUER:?Error: FIREBASE_ISSUER is not set.}"
 
-# Generar la config final desde el template
+# Sustituye variables del template ($PORT, $FIREBASE_*)
 envsubst < /etc/krakend/krakend.tmpl.json > /etc/krakend/krakend.json
 echo "[INFO] Generated /etc/krakend/krakend.json (PORT=$PORT)"
 
-# Arrancar KrakenD usando el puerto indicado
+# Arranca KrakenD
 exec krakend run -c /etc/krakend/krakend.json -p "$PORT"

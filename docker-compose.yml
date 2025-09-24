@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "${PORT}:${PORT}"
-    volumes:
-      - ./krakend/krakend.tmpl.json:/etc/krakend/krakend.tmpl.json:ro
     environment:
       - PORT=${PORT}
       - FIREBASE_JWK_URL=${FIREBASE_JWK_URL}
