@@ -51,6 +51,16 @@
       "method": "GET",
       "timeout": "45s",
       "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com",
+          "audience": ["keyfairy-e8b97"],
+          "issuer": "https://securetoken.google.com/keyfairy-e8b97",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
       "backend": [
         {
           "host": ["http://auth-service:8000"],
@@ -77,6 +87,16 @@
       "method": "GET",
       "timeout": "45s",
       "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com",
+          "audience": ["keyfairy-e8b97"],
+          "issuer": "https://securetoken.google.com/keyfairy-e8b97",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
       "backend": [
         {
           "host": ["http://auth-service:8000"],
@@ -103,6 +123,16 @@
       "method": "PUT",
       "timeout": "45s",
       "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com",
+          "audience": ["keyfairy-e8b97"],
+          "issuer": "https://securetoken.google.com/keyfairy-e8b97",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
       "backend": [
         {
           "host": ["http://auth-service:8000"],
@@ -207,36 +237,20 @@
       "method": "POST",
       "timeout": "45s",
       "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "https://www.googleapis.com/service_accounts/v1/jwk/securetoken@system.gserviceaccount.com",
+          "audience": ["keyfairy-e8b97"],
+          "issuer": "https://securetoken.google.com/keyfairy-e8b97",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
       "backend": [
         {
           "host": ["http://receive-service:8110"],
           "url_pattern": "/practice/register",
-          "encoding": "no-op",
-          "timeout": "40s",
-          "extra_config": {
-            "backend/http": {
-              "disable_keep_alives": false,
-              "idle_connection_timeout": "600s",
-              "dialer_keep_alive": "60s"
-            },
-            "backend/health": {
-              "path": "/health",
-              "interval": "30s",
-              "timeout": "5s"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "endpoint": "/postural-errors/practice/{practice_id}",
-      "method": "GET",
-      "timeout": "45s",
-      "output_encoding": "no-op",
-      "backend": [
-        {
-          "host": ["http://video-analysis-service:8100"],
-          "url_pattern": "/api/v1/postural-errors/practice/{practice_id}",
           "encoding": "no-op",
           "timeout": "40s",
           "extra_config": {
