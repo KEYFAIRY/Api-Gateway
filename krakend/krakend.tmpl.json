@@ -149,7 +149,7 @@
     {
       "endpoint": "/practice/register",
       "method": "POST",
-      "timeout": "45s",
+      "timeout": "120s",
       "output_encoding": "no-op",
       "extra_config": {
         "auth/validator": {
