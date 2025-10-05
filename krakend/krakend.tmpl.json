@@ -193,7 +193,7 @@
           "timeout": "40s"
         }
       ],
-      "input_query_strings":["last_id"]
+      "input_query_strings":["last_id", "limit"]
     },
     {
       "endpoint": "/practice/{uid}/{practice_id}/finish",
