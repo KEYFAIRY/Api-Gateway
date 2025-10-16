@@ -6,8 +6,14 @@ set -e
 : "${FIREBASE_PROJECT_ID:?Error: FIREBASE_PROJECT_ID is not set.}"
 : "${FIREBASE_ISSUER:?Error: FIREBASE_ISSUER is not set.}"
 
-# Sustituye variables del template ($PORT, $FIREBASE_*)
-envsubst < /etc/krakend/krakend.tmpl.json > /etc/krakend/krakend.json
+# Sustituye variables del template usando sed
+sed \
+  -e "s|\$PORT|$PORT|g" \
+  -e "s|\$FIREBASE_JWK_URL|$FIREBASE_JWK_URL|g" \
+  -e "s|\$FIREBASE_PROJECT_ID|$FIREBASE_PROJECT_ID|g" \
+  -e "s|\$FIREBASE_ISSUER|$FIREBASE_ISSUER|g" \
+  /etc/krakend/krakend.tmpl.json > /etc/krakend/krakend.json
+
 echo "[INFO] Generated /etc/krakend/krakend.json (PORT=$PORT)"
 
 # Arranca KrakenD

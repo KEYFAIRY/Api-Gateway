@@ -314,6 +314,131 @@
           "timeout": "40s"
         }
       ]
+    },
+    {
+      "endpoint": "/analytics/top-escalas-semanales",
+      "method": "GET",
+      "timeout": "45s",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "$FIREBASE_JWK_URL",
+          "audience": ["$FIREBASE_PROJECT_ID"],
+          "issuer": "$FIREBASE_ISSUER",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
+      "backend": [
+        {
+          "host": ["http://analytics-service:8120"],
+          "url_pattern": "/analytics/top-escalas-semanales",
+          "encoding": "no-op",
+          "timeout": "40s"
+        }
+      ],
+      "input_query_strings": ["idStudent", "anio", "semana"]
+    },
+    {
+      "endpoint": "/analytics/tiempo-posturas-semanales",
+      "method": "GET",
+      "timeout": "45s",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "$FIREBASE_JWK_URL",
+          "audience": ["$FIREBASE_PROJECT_ID"],
+          "issuer": "$FIREBASE_ISSUER",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
+      "backend": [
+        {
+          "host": ["http://analytics-service:8120"],
+          "url_pattern": "/analytics/tiempo-posturas-semanales",
+          "encoding": "no-op",
+          "timeout": "40s"
+        }
+      ],
+      "input_query_strings": ["idStudent", "anio", "semana"]
+    },
+    {
+      "endpoint": "/analytics/notas-resumen-semanales",
+      "method": "GET",
+      "timeout": "45s",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "$FIREBASE_JWK_URL",
+          "audience": ["$FIREBASE_PROJECT_ID"],
+          "issuer": "$FIREBASE_ISSUER",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
+      "backend": [
+        {
+          "host": ["http://analytics-service:8120"],
+          "url_pattern": "/analytics/notas-resumen-semanales",
+          "encoding": "no-op",
+          "timeout": "40s"
+        }
+      ],
+      "input_query_strings": ["idStudent", "anio", "semana"]
+    },
+    {
+      "endpoint": "/analytics/errores-posturales-semanales",
+      "method": "GET",
+      "timeout": "45s",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "$FIREBASE_JWK_URL",
+          "audience": ["$FIREBASE_PROJECT_ID"],
+          "issuer": "$FIREBASE_ISSUER",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
+      "backend": [
+        {
+          "host": ["http://analytics-service:8120"],
+          "url_pattern": "/analytics/errores-posturales-semanales",
+          "encoding": "no-op",
+          "timeout": "40s"
+        }
+      ],
+      "input_query_strings": ["idStudent", "anio", "semana"]
+    },
+    {
+      "endpoint": "/analytics/errores-musicales-semanales",
+      "method": "GET",
+      "timeout": "45s",
+      "output_encoding": "no-op",
+      "extra_config": {
+        "auth/validator": {
+          "alg": "RS256",
+          "jwk_url": "$FIREBASE_JWK_URL",
+          "audience": ["$FIREBASE_PROJECT_ID"],
+          "issuer": "$FIREBASE_ISSUER",
+          "cache": true,
+          "cache_duration": 15
+        }
+      },
+      "backend": [
+        {
+          "host": ["http://analytics-service:8120"],
+          "url_pattern": "/analytics/errores-musicales-semanales",
+          "encoding": "no-op",
+          "timeout": "40s"
+        }
+      ],
+      "input_query_strings": ["idStudent", "anio", "semana"]
     }
   ]
 }
