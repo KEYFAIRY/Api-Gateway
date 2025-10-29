@@ -220,30 +220,6 @@
       ]
     },
     {
-      "endpoint": "/practice/{uid}/{practice_id}/finish",
-      "method": "PATCH",
-      "timeout": "45s",
-      "output_encoding": "no-op",
-      "extra_config": {
-        "auth/validator": {
-          "alg": "RS256",
-          "jwk_url": "$FIREBASE_JWK_URL",
-          "audience": ["$FIREBASE_PROJECT_ID"],
-          "issuer": "$FIREBASE_ISSUER",
-          "cache": true,
-          "cache_duration": 15
-        }
-      },
-      "backend": [
-        {
-          "host": ["http://practice-service:8130"],
-          "url_pattern": "/practice/{uid}/{practice_id}/finish",
-          "encoding": "no-op",
-          "timeout": "40s"
-        }
-      ]
-    },
-    {
       "endpoint": "/reports/{uid}/{practice_id}",
       "method": "GET",
       "timeout": "45s",
