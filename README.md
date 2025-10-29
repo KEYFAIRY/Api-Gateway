@@ -11,12 +11,12 @@ This repository contains the necessary setup to run an API Gateway with Krakend 
 
 ```bash
 📁 API-GATEWAY/
-├── docker-compose.yml
-├── .env
-├── krakend
-│   ├── Dockerfile
-│   ├── entrypoint.sh
-│   └── krakend.tmpl.json
+├── docker-compose.yml      # Conatainer management
+├── .env                    # Environment variables
+├── 📁 krakend
+│   ├── Dockerfile          # Docker image management
+│   ├── entrypoint.sh       # API Gateway initialization
+│   └── krakend.tmpl.json   # Endpoints template
 ├── .gitignore
 └── README.md
 ```
