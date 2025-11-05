@@ -149,7 +149,7 @@
     {
       "endpoint": "/practice/register",
       "method": "POST",
-      "timeout": "120s",
+      "timeout": "180s",
       "output_encoding": "no-op",
       "extra_config": {
         "auth/validator": {
@@ -166,7 +166,7 @@
           "host": ["http://receive-service:8110"],
           "url_pattern": "/practice/register",
           "encoding": "no-op",
-          "timeout": "40s"
+          "timeout": "240s"
         }
       ]
     },
