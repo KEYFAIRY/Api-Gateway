@@ -1,4 +1,4 @@
-FROM devopsfaith/krakend:latest
+FROM krakend:2.12.0
 
 # Copia template y entrypoint
 COPY krakend.tmpl.json /etc/krakend/krakend.tmpl.json
