@@ -3,13 +3,13 @@
   "version": 3,
   "name": "Keyfairy API Gateway",
   "port": $PORT,
-  "timeout": "60s",
+  "timeout": "180s",
   "extra_config": {
     "router": { "return_error_msg": true },
     "backend/http/client": {
       "idle_connection_timeout": "600s",
-      "response_header_timeout": "30s",
-      "expect_continue_timeout": "3s",
+      "response_header_timeout": "180s",
+      "expect_continue_timeout": "10s",
       "dialer_timeout": "30s",
       "dialer_keep_alive": "60s",
       "max_idle_connections": 500,
